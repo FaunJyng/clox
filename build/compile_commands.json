@@ -1,0 +1,26 @@
+[
+{
+  "directory": "D:/cpp/compiler/crafting_interpreters/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DFMT_SHARED @CMakeFiles/clox.dir/includes_CXX.rsp -g -o CMakeFiles\\clox.dir\\src\\main.cpp.obj -c D:\\cpp\\compiler\\crafting_interpreters\\src\\main.cpp",
+  "file": "D:/cpp/compiler/crafting_interpreters/src/main.cpp",
+  "output": "CMakeFiles/clox.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/cpp/compiler/crafting_interpreters/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DFMT_SHARED @CMakeFiles/clox.dir/includes_CXX.rsp -g -o CMakeFiles\\clox.dir\\src\\token.cpp.obj -c D:\\cpp\\compiler\\crafting_interpreters\\src\\token.cpp",
+  "file": "D:/cpp/compiler/crafting_interpreters/src/token.cpp",
+  "output": "CMakeFiles/clox.dir/src/token.cpp.obj"
+},
+{
+  "directory": "D:/cpp/compiler/crafting_interpreters/build/_deps/fmt-build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DFMT_LIB_EXPORT -Dfmt_EXPORTS @CMakeFiles/fmt.dir/includes_CXX.rsp -g -o CMakeFiles\\fmt.dir\\src\\format.cc.obj -c D:\\cpp\\compiler\\crafting_interpreters\\build\\_deps\\fmt-src\\src\\format.cc",
+  "file": "D:/cpp/compiler/crafting_interpreters/build/_deps/fmt-src/src/format.cc",
+  "output": "_deps/fmt-build/CMakeFiles/fmt.dir/src/format.cc.obj"
+},
+{
+  "directory": "D:/cpp/compiler/crafting_interpreters/build/_deps/fmt-build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DFMT_LIB_EXPORT -Dfmt_EXPORTS @CMakeFiles/fmt.dir/includes_CXX.rsp -g -o CMakeFiles\\fmt.dir\\src\\os.cc.obj -c D:\\cpp\\compiler\\crafting_interpreters\\build\\_deps\\fmt-src\\src\\os.cc",
+  "file": "D:/cpp/compiler/crafting_interpreters/build/_deps/fmt-src/src/os.cc",
+  "output": "_deps/fmt-build/CMakeFiles/fmt.dir/src/os.cc.obj"
+}
+]
