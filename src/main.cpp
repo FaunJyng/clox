@@ -1,4 +1,4 @@
-#include <atomic>
+#include <chrono>
 #include <csignal>
 #include <cstdlib>
 #include <fmt/color.h>
@@ -7,33 +7,36 @@
 #include <iostream>
 #include <iterator>
 #include <string>
+#include <thread>
 
-std::atomic<int> g_sigint_count{ 0 };
 void RunFile( const std::string& );
 void RunPrompt();
 void Run( const std::string& );
-void SigintCallbackHandler( int );
+void SIGINTHandler( int );
 
 int main( int argc, char* argv[] )
 {
-	std::signal( SIGINT, SigintCallbackHandler );
+	std::signal( SIGINT, SIGINTHandler );
 	if ( argc > 2 ) {
 		fmt::println( "Usage: clox [script]" );
 		std::exit( 64 );
 	} else if ( argc == 2 ) {
 		RunFile( argv[ 1 ] );
 	} else {
-		fmt::println( "Welcome to Clox v0.0.1" );
-		fmt::println( "Type \".help\" for more information" );
+		fmt::print( "Welcome to Clox v0.0.1\n" );
+		fmt::print( "Type \".help\" for more information\n" );
 		RunPrompt();
 	}
 	return EXIT_SUCCESS;
 }
 
-void SigintCallbackHandler( int signal )
+void SIGINTHandler( int signal )
 {
-	++g_sigint_count;
-}
+	if ( signal == SIGINT ) {
+		fmt::print( fg( fmt::color::dim_gray ), "\nKeyboardInterupt\n" );
+	}
+	std::signal( SIGINT, SIGINTHandler );
+};
 
 void RunFile( const std::string& path )
 {
@@ -52,21 +55,23 @@ void RunPrompt()
 {
 	std::string line;
 	while ( true ) {
-		fmt::print( fg( fmt::color::crimson ), "> " );
-		if ( !std::getline( std::cin >> std::ws, line ) ) {
-			if ( g_sigint_count.load() == 0 ) {
-				fmt::println( "\n(To exit, press Ctrl+C again or Ctrl+D or type .exit)" );
-				std::cin.clear();
-				continue;
-			} else {
-				std::exit( 0 );
-			}
+		fmt::print( "> " );
+		if ( !std::getline( std::cin, line ) ) {
+			std::cin.clear();
+			std::this_thread::sleep_for( std::chrono::milliseconds( 1 ) );
+			continue;
 		}
+		if ( line == ".exit" || line == ".e" )
+			break;
 		Run( line );
 	}
 }
 
 void Run( const std::string& line )
 {
-	fmt::println( line );
+	if ( line.empty() || line.length() == 0 ) {
+		fmt::print( "" );
+	} else {
+		fmt::print( fg( fmt::color::yellow ), "{}\n", line );
+	}
 }
