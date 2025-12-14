@@ -1,6 +1,0 @@
-D:/cpp/compiler/crafting_interpreters/build/CMakeFiles/clox.dir
-D:/cpp/compiler/crafting_interpreters/build/CMakeFiles/edit_cache.dir
-D:/cpp/compiler/crafting_interpreters/build/CMakeFiles/rebuild_cache.dir
-D:/cpp/compiler/crafting_interpreters/build/_deps/fmt-build/CMakeFiles/fmt.dir
-D:/cpp/compiler/crafting_interpreters/build/_deps/fmt-build/CMakeFiles/edit_cache.dir
-D:/cpp/compiler/crafting_interpreters/build/_deps/fmt-build/CMakeFiles/rebuild_cache.dir
